@@ -22,32 +22,31 @@
 		</bean>
 
 		<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-			 <property name="driverClassName" value="${database.driver}"></property>
-			 <property name="url" value="${database.url}"></property>
-			 <property name="username" value="${database.user}"></property>
-			 <property name="password" value="${database.password}"></property>
+			 <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+			 <property name="url" value="jdbc:mysql://localhost/db"></property>
+			 <property name="username" value="root"></property>
+			 <property name="password" value="root"></property>
 		</bean>
 
-		<bean class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" id="sessionFactory">
+		<bean class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" id="sessionFactory">
 		 <property name="dataSource" ref="dataSource"></property>
 
 			 <property name="annotatedClasses">
 			  <list>
 			   <value>com.hiber.vo.InfoVO</value>
-			    <value>com.hiber.vo.InfoDAO</value>
 			  </list>
 			 </property>
 	
 		 <property name="hibernateProperties">
 			 <props>
-			  <prop key="hibernate.dialect">${hibernate.dialect}</prop>
-			  <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
-			  <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}  </prop>    
+			  <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			  <prop key="hibernate.show_sql">true</prop>
+			  <prop key="hibernate.hbm2ddl.auto">update</prop>    
 			 </props>
 		 </property>
 		</bean>
 
-	  <bean class="org.springframework.orm.hibernate3.HibernateTransactionManager" id="hibernateTransactionManager">
+	  <bean class="org.springframework.orm.hibernate4.HibernateTransactionManager" id="hibernateTransactionManager">
 	 	<property name="sessionFactory" ref="sessionFactory"></property>
 	  </bean> 
 </beans>

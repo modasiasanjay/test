@@ -1,21 +1,20 @@
 package com.hiber.dao;
-
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hiber.vo.InfoVO;
 
-@Repository
 @Transactional
+@Repository
 public class InfoDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
 	public void insert(InfoVO vo){
 		
 		Session session = sessionFactory.openSession();

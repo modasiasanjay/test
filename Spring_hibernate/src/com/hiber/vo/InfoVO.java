@@ -1,6 +1,5 @@
 package com.hiber.vo;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Registration")
-public class InfoVO implements Serializable{
+public class InfoVO {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

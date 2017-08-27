@@ -10,10 +10,8 @@
 </head>
 	<body>
 			<f:form action="insert.do" modelAttribute="r" method="get">
-	FirstName<f:input path="FirstName"/><br>
-	LastName<f:input path="LastName"/><br>
-	UserName<f:input path="UserName"/><br>
-		Pass<f:input path="Pass"/><br>
+	FirstName<f:input path="firstName"/><br>
+	LastName<f:input path="lastName"/><br>
 	
 		<input type="submit" value="save">
 		<a href="search.do">search</a>
